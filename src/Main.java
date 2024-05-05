@@ -1,9 +1,11 @@
+
 import java.util.Scanner;
 import utils.Dict;
 import java.util.Set;
 
 public class Main {
     public static void main(String[] args){
+        Set<String> dict =    Dict.readFromFile("dictionary/dictionary.txt");
         while(true){
             System.out.println("\r\n" + //
                                 "░██╗░░░░░░░██╗███████╗██╗░░░░░░█████╗░░█████╗░███╗░░░███╗███████╗  ████████╗░█████╗░\r\n" + //
@@ -33,7 +35,7 @@ public class Main {
                                 "░░████╔═████║░██╔══██║██╔══██╗██║╚████║██╔══██║  ██╔══██║██╔═══╝░██╔══██║██╗██╔══██╗██║░░██║░╚═══██╗░░░╚══╝░\r\n" + //
                                 "░░╚██╔╝░╚██╔╝░██║░░██║██║░░██║██║░╚███║██║░░██║  ██║░░██║██║░░░░░██║░░██║╚█║██████╦╝╚█████╔╝██████╔╝░░░██╗░░\r\n" + //
                                 "░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝  ╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚═╝░╚╝╚═════╝░░╚════╝░╚═════╝░░░░╚═╝░░");
-            Set<String> dict =    Dict.readFromFile("dictionary/dictionary.txt");
+            
             Scanner inp = new Scanner(System.in);
             String start;
             String end;
@@ -118,8 +120,9 @@ public class Main {
             }
             System.out.println("Quit(Y/N): ");
             String isQuit = inp.nextLine();
-            inp.close();
+            
             if(isQuit.toLowerCase().equals("y")){
+                inp.close();
                 break;
             }
         }

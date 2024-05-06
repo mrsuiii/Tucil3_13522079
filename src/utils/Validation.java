@@ -1,10 +1,7 @@
 package utils;
 
-
-
 public class Validation {
     // static method
-
     // mengecek apakah panjang String s1 dan s2 sama
     public static boolean val_length(String s1,String s2){
         return s1.length()==s2.length();

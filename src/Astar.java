@@ -27,7 +27,7 @@ public class Astar {
 
     public static void solve(String start,String end,Set<String> words){
         Map<String,Boolean> visited = new HashMap<>();
-        Queue<String> queue =  new PriorityQueue<>(Comparator.comparing(s->cost_counter(start,s,end)));
+        PriorityQueue<String> queue =  new PriorityQueue<>(Comparator.comparing(s->cost_counter(start,s,end)));
         visited.put(start, true);
         Map<String,String> parent =new HashMap<>();
         queue.add(start);
@@ -35,6 +35,7 @@ public class Astar {
         int cnt = 1;
         while(!queue.isEmpty()){
             String current = queue.poll();
+            
             if(current.equals(end)){
                 Found = true;
                 break;
@@ -43,9 +44,9 @@ public class Astar {
             for(String s:neighbour){
                 if(visited.get(s)==null){
                     cnt++;
-                    visited.put(s,true);
                     queue.add(s);
-                    parent.put(s,current );
+                    visited.put(current,true);
+                    parent.put(s,current);
                 }
             }        
         }

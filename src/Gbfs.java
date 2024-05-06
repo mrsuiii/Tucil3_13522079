@@ -20,7 +20,7 @@ public class Gbfs{
 
     public static void solve(String start,String end,Set<String> words){
         Map<String,Boolean> visited = new HashMap<>();
-        Queue<String> queue =  new PriorityQueue<>(Comparator.comparing(s->cost_counter(s,end)));
+        PriorityQueue<String> queue =  new PriorityQueue<>(Comparator.comparing(s->cost_counter(s,end)));
         visited.put(start, true);
         Map<String,String> parent =new HashMap<>();
         queue.add(start);
@@ -32,12 +32,13 @@ public class Gbfs{
                 Found = true;
                 break;
             }
+            visited.put(current,true);
             Set<String> neighbour=  utils.Neighbour.getNeighbour(current, words);
             
             for(String s:neighbour){
                 if(visited.get(s)==null){
                     cnt++;
-                    visited.put(s,true);
+                    
                     queue.add(s);
                     parent.put(s,current );
                 }

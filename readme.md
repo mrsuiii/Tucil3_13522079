@@ -36,7 +36,7 @@ A (A-Star)**: Algoritma ini adalah perpaduan antara UCS dan GBFS. Ia menggunakan
 ```
 2. go to bin
 ```bash
-        cd bin
+    cd bin
 ```
 3. Run
 ```bash
